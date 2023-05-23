@@ -1,3 +1,6 @@
+# Used CamelCase for Class names.
+# Used snake_case for File names, Methods and variables.
+
 class Person
   attr_reader :id
   attr_accessor :name, :age
