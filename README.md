@@ -31,9 +31,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Ruby_Enumerable] <a name="about-project"></a>
+# 📖 [Ruby_OOP_school_library] <a name="about-project"></a>
 
-> ## **[Ruby_Enumerable]** :- The OOP school library project in Ruby is a software application designed to help school librarians manage and organize their library resources efficiently using object-oriented programming principles. It allows librarians to add new books, manage book loans, and keep track of overdue books while providing a search feature for students and teachers.
+> ## **[Ruby_OOP_school_library]** :- The OOP school library project in Ruby is a software application designed to help school librarians manage and organize their library resources efficiently using object-oriented programming principles. It allows librarians to add new books, manage book loans, and keep track of overdue books while providing a search feature for students and teachers.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -163,7 +163,7 @@ Feel free to check the [issues page](https://github.com/Besufekad-HAZ/OOP-school
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> If you like this project rate it and give it a star...
+> If you like this project rate it and give it a star ⭐️...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -171,7 +171,7 @@ Feel free to check the [issues page](https://github.com/Besufekad-HAZ/OOP-school
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> We would like to thank the [Microverse team](https://www.microverse.org/) for allowing us to work on this Ruby Enumerable project.
+> We would like to thank the [Microverse team](https://www.microverse.org/) for allowing us to work on this Ruby OOP School Library project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
