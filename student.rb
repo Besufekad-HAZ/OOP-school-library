@@ -2,6 +2,7 @@ require_relative 'person'
 
 class Student < Person
   attr_reader :classroom
+  attr_accessor :name
 
   def initialize(age, classroom, name: 'Unknown', parent_permission: true)
     super(age, name: name, parent_permission: parent_permission)
@@ -12,13 +13,13 @@ class Student < Person
     '¯(ツ)/¯'
   end
 
-  # def can_use_services?
-  #   super && !suspended?
-  # end
+  def can_use_services?
+    super && !suspended?
+  end
 
-  # def suspended?
-  #   false
-  # end
+  def suspended?
+    false
+  end
 
   def classroom=(classroom)
     @classroom = classroom
