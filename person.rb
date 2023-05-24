@@ -1,6 +1,10 @@
 # Used CamelCase for Class names.
 # Used snake_case for File names, Methods and variables.
 
+require_relative 'decorator_capitalize'
+require_relative 'decorator_trimmer'
+require_relative 'trimmer_decorator'
+
 class Person
   attr_reader :id
   attr_accessor :name, :age
@@ -22,3 +26,10 @@ class Person
     @age >= 18
   end
 end
+
+person = Person.new(22, 'maximilianus')
+  person.correct_name
+  capitalizedPerson = CapitalizeDecorator.new(person)
+  capitalizedPerson.correct_name
+  capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
+  capitalizedTrimmedPerson.correct_name
