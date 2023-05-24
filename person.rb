@@ -11,7 +11,12 @@ class Person < Nameable
     @id = Random.rand
     @name = name
     @age = age
+    @rentals = []
     @parent_permission = parent_permission
+  end
+
+  def add_rental(rental)
+    @rentals << rental
   end
 
   def can_use_services?
@@ -29,11 +34,13 @@ class Person < Nameable
   end
 end
 
-person = Person.new(22, name: 'maximilianus')
-puts person.correct_name
+# Test code for person using decorator classes
 
-capitalized_person = CapitalizeDecorator.new(person)
-puts capitalized_person.correct_name
+# person = Person.new(22, name: 'maximilianus')
+# puts person.correct_name
 
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-puts capitalized_trimmed_person.correct_name
+# capitalized_person = CapitalizeDecorator.new(person)
+# puts capitalized_person.correct_name
+
+# capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
+# puts capitalized_trimmed_person.correct_name
