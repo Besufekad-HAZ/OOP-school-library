@@ -24,16 +24,40 @@ class UI
   def choose_option
     option = gets.chomp
     case option
-    when '1' then @app.list_books
-    when '2' then @app.list_people
-    when '3' then @app.create_person
-    when '4' then @app.create_book
-    when '5' then @app.create_rental
-    when '6' then @app.list_rentals_by_person_id
+    when '1' then list_books
+    when '2' then list_people
+    when '3' then create_person
+    when '4' then create_book
+    when '5' then create_rental
+    when '6' then list_rentals_by_person_id
     when '7' then quit
     else
       puts 'Invalid option. Please choose a valid option.'
     end
+  end
+
+  def list_books
+    @app.list_books
+  end
+
+  def list_people
+    @app.list_people
+  end
+
+  def create_person
+    @app.create_person
+  end
+
+  def create_book
+    @app.create_book
+  end
+
+  def create_rental
+    @app.create_rental
+  end
+
+  def list_rentals_by_person_id
+    @app.list_rentals_by_person_id
   end
 
   def quit
