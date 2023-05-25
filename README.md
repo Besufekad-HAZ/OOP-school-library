@@ -67,7 +67,7 @@
 - Simple command-line user-friendly interface.
 - User management: The system should allow librarians to create, edit, and delete user accounts and manage user permissions.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>`
 
 <!-- GETTING STARTED -->
 

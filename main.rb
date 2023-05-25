@@ -35,8 +35,10 @@ def choose_option(app)
     app.create_rental
   when '6'
     app.list_rentals_by_person_id
-  else
+  when '7'
     exit_app
+  else
+    puts 'Invalid option. Please choose again.'
   end
 end
 
