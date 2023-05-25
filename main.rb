@@ -30,11 +30,13 @@ class UI
     when '4' then @app.create_book
     when '5' then @app.create_rental
     when '6' then @app.list_rentals_by_person_id
-    else        exit
+    when '7' then quit
+    else
+      puts 'Invalid option. Please choose a valid option.'
     end
   end
 
-  def exit
+  def quit
     puts 'Thank you for using this app!'
     exit
   end
