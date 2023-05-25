@@ -21,22 +21,19 @@ def display_menu
 end
 
 def choose_option(app)
+  options = {
+    '1' => :list_books,
+    '2' => :list_people,
+    '3' => :create_person,
+    '4' => :create_book,
+    '5' => :create_rental,
+    '6' => :list_rentals_by_person_id,
+    '7' => :exit_app
+  }
+
   option = gets.chomp
-  case option
-  when '1'
-    app.list_books
-  when '2'
-    app.list_people
-  when '3'
-    app.create_person
-  when '4'
-    app.create_book
-  when '5'
-    app.create_rental
-  when '6'
-    app.list_rentals_by_person_id
-  when '7'
-    exit_app
+  if options.key?(option)
+    app.send(options[option])
   else
     puts 'Invalid option. Please choose again.'
   end
