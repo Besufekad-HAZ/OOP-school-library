@@ -19,18 +19,24 @@ class Person < Nameable
     @rentals << rental
   end
 
-  def can_use_services?
-    of_age? || @parent_permission
+    def can_use_services?
+    of_age? || parent_permission
   end
 
   def correct_name
-    @name
+    name
   end
 
   private
 
+  attr_reader :parent_permission
+
+  def parent_permission
+    @parent_permission ||= false
+  end
+
   def of_age?
-    @age >= 18
+    age >= 18
   end
 end
 
