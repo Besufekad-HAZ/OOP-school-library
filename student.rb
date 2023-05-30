@@ -13,14 +13,6 @@ class Student < Person
     '¯(ツ)/¯'
   end
 
-  def can_use_services?
-    super && !suspended?
-  end
-
-  def suspended?
-    false
-  end
-
   def classroom=(classroom)
     @classroom = classroom
     classroom.students.push(self) unless classroom.students.include?(self)
