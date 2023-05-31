@@ -1,22 +1,30 @@
 require_relative 'storage_handler'
 
-class DisplayHandler
-  def display_options
+class HandleOptions
+  def initialize(app)
+    @app = app
+    @storage = StorageHandler.new
+  end
+
+  def display
     puts 'Please choose an option by entering a number:'
     puts '1 - List all books'
     puts '2 - List all people'
     puts '3 - Create a person'
     puts '4 - Create a book'
     puts '5 - Create a rental'
-    puts '6 - List all rentals for a given personID'
+    puts '6 - List all rentals for a given person id'
     puts '7 - Exit'
   end
-end
 
-class BookCreationHandler
-  def initialize(app, storage_handler)
-    @app = app
-    @storage_handler = storage_handler
+  def list_all_books
+    puts 'Books:-'
+    @app.list_all_books
+  end
+
+  def list_all_peoples
+    puts 'Peoples:-'
+    @app.list_all_peoples
   end
 
   def create_book
@@ -25,16 +33,7 @@ class BookCreationHandler
     puts 'Author: '
     author = gets.chomp
     @app.create_book(title, author)
-    @storage_handler.store_books(title, author)
-  rescue => e
-    puts "An error occurred while creating the book: #{e.message}"
-  end
-end
-
-class PersonCreationHandler
-  def initialize(app, storage_handler)
-    @app = app
-    @storage_handler = storage_handler
+    @storage.store_books(title, author)
   end
 
   def create_person
@@ -51,23 +50,14 @@ class PersonCreationHandler
     parent_permission = true unless %w[N n No no].include?(gets.chomp.downcase)
     person = { options: number, age: age, name: name, permission: parent_permission }
     if number == '1'
-      @app.create_student(age, name,parent_permission)
+      @app.create_student(age, name, parent_permission)
     else
       print 'Specialization: '
       specialization = gets.chomp
       person['specialization'] = specialization
       @app.create_teacher(specialization, age, name)
     end
-    @storage_handler.store_persons(person)
-  rescue => e
-    puts "An error occurred while creating the person: #{e.message}"
-  end
-end
-
-class RentalCreationHandler
-  def initialize(app, storage_handler)
-    @app = app
-    @storage_handler = storage_handler
+    @storage.store_persons(person)
   end
 
   def create_rental
@@ -82,11 +72,10 @@ class RentalCreationHandler
     puts 'Date(YYYY-MM-DD)'
     date = gets.chomp
     @app.create_rental(date, @app.peoples[person_index], @app.books[number])
-    @storage_handler.store_rentals({ date: date, p_idx: person_index, b_idx: number })
+    @storage.store_rentals({ date: date, p_idx: person_index, b_idx: number })
     puts 'Rental created successfully'
- end
+  end
 
-class RentalListHandler
   def list_rentals
     print 'ID of a person: '
     id = gets.chomp.to_i
@@ -94,46 +83,6 @@ class RentalListHandler
     puts 'Rentals:'
     person.rentals.each do |rental|
       puts "Date #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
-    end
-  rescue => e
-    puts "An error occurred while listing rentals: #{e.message}"
-  end
-end
-
-class HandleOptions
-  def initialize(app, storage_handler)
-    @app = app
-    @storage_handler = storage_handler
-    @display_handler = DisplayHandler.new
-    @book_creation_handler = BookCreationHandler.new(@app, @storage_handler)
-    @person_creation_handler = PersonCreationHandler.new(@app, @storage_handler)
-    @rental_creation_handler = RentalCreationHandler.new(@app, @storage_handler)
-    @rental_list_handler = RentalListHandler.new(@app)
-  end
-
-  def run
-    loop do
-      @display_handler.display_options
-      option = gets.chomp.to_i
-
-      case option
-      when 1
-        @app.list_all_books
-      when 2
-        @app.list_all_peoples
-      when 3
-        @person_creation_handler.create_person
-      when 4
-        @book_creation_handler.create_book
-      when 5
-        @rental_creation_handler.create_rental
-      when 6
-        @rental_list_handler.list_rentals
-      when 7
-        exit
-      else
-        puts 'Invalid option. Please enter a number between 1 and 7.'
-      end
     end
   end
 end
