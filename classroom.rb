@@ -12,7 +12,7 @@ class Classroom
     return if student.nil?
 
     @students.push(student)
-    student.classroom= self
+    student.classroom = self
   end
 
   def students
