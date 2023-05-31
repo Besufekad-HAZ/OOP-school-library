@@ -10,15 +10,15 @@ describe Classroom do
   end
 
   it 'checking attributes' do
-    expect(@classroom.label).to eq('Eight')
+    expect(@classroom.classroom_label).to eq('Eight')
   end
 
   it 'test for add student' do
     student = double('student')
     allow(student).to receive(:age) { '12' }
-    allow(student).to receive(:name) { 'shubham' }
+    allow(student).to receive(:name) { 'Imran' }
     allow(student).to receive(:parent_permission) { true }
     allow(student).to receive(:classroom=).and_return(Classroom)
-    expect(@classroom.add_student(student).students[0].name).to eq('shubham')
+    expect(@classroom.add_student(student).students[0].name).to eq('Imran')
   end
 end
