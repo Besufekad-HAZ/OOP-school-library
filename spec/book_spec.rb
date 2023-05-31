@@ -2,7 +2,7 @@ require_relative '../book'
 
 describe Book do
   before :each do
-    @book = Book.new 'Harry Potter', 'Shubham'
+    @book = Book.new 'Harry Potter', 'Imran'
   end
 
   it 'checking book instance' do
@@ -10,7 +10,7 @@ describe Book do
   end
 
   it 'checking attributes' do
-    expect(@book).to have_attributes(title: 'Harry Potter', author: 'Shubham')
+    expect(@book).to have_attributes(title: 'Harry Potter', author: 'Imran')
   end
 
   it 'test for add_rental' do
