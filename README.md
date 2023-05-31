@@ -128,6 +128,11 @@ ruby filename.rb
 - Twitter: [@BesufekadAlemu7](https://twitter.com/BesufekadAlemu7)
 - LinkedIn: [@besura](www.linkedin.com/in/besura)
 
+## <a> 👤 Imran Hossain </a>
+
+- GitHub: [@imranhossainemi](https://github.com/imranhossainemi)
+- Twitter: [@DevImranHossain](https://twitter.com/DevImranHossain)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
