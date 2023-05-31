@@ -18,7 +18,7 @@ describe Book do
     allow(person).to receive(:age) { '12' }
     allow(person).to receive(:name) { 'Imran' }
     allow(person).to receive(:parent_permission) { true }
-    rental = @book.add_rental(rental)
+    @book.add_rental(rental)
     expect(person.name).to eq('Imran')
   end
 end
