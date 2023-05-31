@@ -1,5 +1,6 @@
 require_relative 'app'
 require_relative 'handle_options'
+require_relative 'loader'
 
 def run_app(handle_options, _app)
   menu_options = {
@@ -26,6 +27,8 @@ end
 
 def main
   app = App.new
+  loader = Loader.new(app)
+  loader.load_all
   handle_options = HandleOptions.new(app)
   puts 'Welcome to the School Library App!'
   run_app(handle_options, app)

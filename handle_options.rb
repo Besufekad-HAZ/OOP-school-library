@@ -1,6 +1,9 @@
+require_relative 'storage_handler'
+
 class HandleOptions
   def initialize(app)
     @app = app
+    @storage = StorageHandler.new
   end
 
   def display
@@ -30,6 +33,7 @@ class HandleOptions
     puts 'Author: '
     author = gets.chomp
     @app.create_book(title, author)
+    @storage.store_books(title, author)
   end
 
   def create_person
@@ -43,16 +47,17 @@ class HandleOptions
     name = gets.chomp
     print 'Has parent permission? (Y/N): '
     parent_permission = false
-    temp = gets.chomp.downcase
-    parent_permission = true unless %w[N n No no].include?(temp)
-
+    parent_permission = true unless %w[N n No no].include?(gets.chomp.downcase)
+    person = { options: number, age: age, name: name, permission: parent_permission }
     if number == '1'
       @app.create_student(age, name, parent_permission)
     else
       print 'Specialization: '
       specialization = gets.chomp
+      person['specialization'] = specialization
       @app.create_teacher(specialization, age, name)
     end
+    @storage.store_persons(person)
   end
 
   def create_rental
@@ -67,6 +72,7 @@ class HandleOptions
     puts 'Date(YYYY-MM-DD)'
     date = gets.chomp
     @app.create_rental(date, @app.peoples[person_index], @app.books[number])
+    @storage.store_rentals({ date: date, p_idx: person_index, b_idx: number })
     puts 'Rental created successfully'
   end
 
